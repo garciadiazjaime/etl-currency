@@ -1,0 +1,26 @@
+{
+  "name": "etl-currency",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": {},
+  "license": "MIT",
+  "scripts": {
+    "build": "babel ./src -d dist",
+    "start": "node dist/main",
+    "docker:build": "yarn build && docker build -t garciadiazjaime/etl-currency .",
+    "docker:run": "docker run -d -p 49360:80 -e 'API_URL=http://0.0.0.0:3060/' --name currency garciadiazjaime/etl-currency",
+    "docker:push": "docker push garciadiazjaime/etl-currency",
+    "docker:pull": "docker pull garciadiazjaime/etl-currency",
+    "test": "jest"
+  },
+  "dependencies": {
+    "convict": "^4.0.2",
+    "request": "^2.83.0",
+    "request-promise-native": "^1.0.5"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "jest": "^22.4.3"
+  }
+}
