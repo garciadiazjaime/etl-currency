@@ -22,7 +22,7 @@ const transform = (props, response) => {
     throw('Fixer return invalid response')
   }
 
-  const ratesWanted = Object.keys(rates).reduce((accumulator, currency) => {
+  const wantedRates = Object.keys(rates).reduce((accumulator, currency) => {
     if (props.currencies.includes(currency)) {
       accumulator.push({
         [currency]: rates[currency]
@@ -31,7 +31,7 @@ const transform = (props, response) => {
     return accumulator
   }, [])
 
-  return ratesWanted
+  return wantedRates
 }
 
 const main = async () => {
