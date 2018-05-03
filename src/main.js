@@ -1,4 +1,4 @@
-import fixerEtl from './sources/fixer'
+import fixerEtl from './sources/fixer';
 
 fixerEtl()
-  .then(console.log)
+  .then(console.log);

@@ -1,26 +1,26 @@
 const transform = (props, response) => {
-  const data = response && JSON.parse(response)
+  const data = response && JSON.parse(response);
   if (!data || !data.success) {
-    throw('Source returned invalid response')
+    throw new Error('Source returned invalid response');
   }
 
-  const { rates } = data
+  const { rates } = data;
   if (!rates || !Object.keys(rates).length) {
-    throw('Source did not return rates')
+    throw new Error('Source did not return rates');
   }
 
   if (!props || !props.currencies || !props.currencies.length) {
-    throw('Props.currencies were not passed')
+    throw new Error('Props.currencies were not passed');
   }
 
   return Object.keys(rates).reduce((accumulator, currency) => {
     if (props.currencies.includes(currency)) {
       accumulator.push({
-        [currency]: rates[currency]
-      })
+        [currency]: rates[currency],
+      });
     }
-    return accumulator
-  }, [])
-}
+    return accumulator;
+  }, []);
+};
 
-export default transform
+export default transform;
