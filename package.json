@@ -11,7 +11,7 @@
     "docker:run": "docker run -d -p 49360:80 -e 'API_URL=http://0.0.0.0:3060/' --name currency garciadiazjaime/etl-currency",
     "docker:push": "docker push garciadiazjaime/etl-currency",
     "docker:pull": "docker pull garciadiazjaime/etl-currency",
-    "test": "jest"
+    "test": "jest tests"
   },
   "dependencies": {
     "convict": "^4.0.2",

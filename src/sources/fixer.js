@@ -1,6 +1,7 @@
 
 import config from '../config'
-import extract from '../util/extract.js'
+import extract from '../util/extract'
+import transform from '../transformer/fixer'
 import load from '../util/load'
 
 const props = {
@@ -11,30 +12,9 @@ const props = {
   currencies: ['EUR', 'USD', 'MXN']
 }
 
-const transform = (props, response) => {
-  const data = JSON.parse(response)
-  if (!data || !data.success) {
-    throw('Fixer return invalid response')
-  }
 
-  const { rates } = data
-  if (!Object.keys(rates)) {
-    throw('Fixer return invalid response')
-  }
 
-  const ratesWanted = Object.keys(rates).reduce((accumulator, currency) => {
-    if (props.currencies.includes(currency)) {
-      accumulator.push({
-        [currency]: rates[currency]
-      })
-    }
-    return accumulator
-  }, [])
-
-  return ratesWanted
-}
-
-const main = async () => {
+const main = () => {
   return extract(props)
     .then(response => transform(props, response))
     .then(currencies => load(props, currencies))
