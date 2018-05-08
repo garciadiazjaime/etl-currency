@@ -14,7 +14,7 @@ const config = convict({
       format: String,
       default: 'http://127.0.0.1:3030/currency',
       env: 'CURRENCY_API_URL',
-    }
+    },
   },
   fixer: {
     token: {

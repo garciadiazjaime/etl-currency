@@ -2,10 +2,22 @@
 
 [![Build Status](https://travis-ci.org/garciadiazjaime/etl-currency.svg)](https://travis-ci.org/garciadiazjaime/etl-currency)
 
-## Run project:
-a) Install Dependencies
+##  Install Dependencies
 
 `yarn`
 
-## Watch Changes
+## Run ETLs
+
+`yarn start`
+
+## Watch for Changes
 `yarn build -- --watch`
+
+## Run tests
+`yarn test -- --watch`
+
+## Watch lint
+`yarn lint -- --watch`
+
+## Fixer documentation
+https://fixer.io/documentation
