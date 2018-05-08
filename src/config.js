@@ -23,6 +23,14 @@ const config = convict({
       default: '',
       env: 'FIXER_TOKEN',
     }
+  },
+  currencyLayer: {
+    token: {
+      doc: 'Access token',
+      format: String,
+      default: 'b7e9097ad7389732c12a86ecc47baeb0',
+      env: 'CURRENCY_LAYER_TOKEN',
+    }
   }
 });
 

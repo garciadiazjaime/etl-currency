@@ -5,10 +5,10 @@ import load from '../util/load'
 
 const props = {
   isProduction: config.get('env') === 'production',
-  file: './stubs/fixer.json',
-  fixerUrl: `http://data.fixer.io/api/latest?access_key=${config.get('fixer.token')}&format=1`,
+  file: './stubs/currencyLayer.json',
+  currencyLayerUrl:`${config.get('currencyLayer.token')}0&currencies=USD,AUD,CAD,PLN,MXN&format=1`,
   apiUrl: config.get('api.url'),
-  currencies: ['EUR', 'USD', 'MXN']
+  currencies: ['USDPLN', 'USDCAD', 'USDMXN']
 }
 
 const transform = (props, response) => {
@@ -17,15 +17,15 @@ const transform = (props, response) => {
     throw('Fixer return invalid response')
   }
 
-  const { rates } = data
-  if (!Object.keys(rates)) {
+  const { quotes } = data
+  if (!Object.keys(quotes)) {
     throw('Fixer return invalid response')
   }
 
-  const wantedRates = Object.keys(rates).reduce((accumulator, currency) => {
+  const wantedRates = Object.keys(quotes).reduce((accumulator, currency) => {
     if (props.currencies.includes(currency)) {
       accumulator.push({
-        [currency]: rates[currency]
+        [currency]: quotes[currency]
       })
     }
     return accumulator

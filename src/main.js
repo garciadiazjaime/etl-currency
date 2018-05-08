@@ -1,4 +1,4 @@
-import fixerEtl from './sources/fixer'
+import clEtl from './sources/currencyLayer'
 
-fixerEtl()
+clEtl()
   .then(console.log)
