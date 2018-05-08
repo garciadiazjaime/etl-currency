@@ -1,4 +1,10 @@
-import fixerEtl from './sources/fixer';
+import fixer from './sources/fixer';
+import coinmarketcap from './sources/coinmarketcap';
 
-fixerEtl()
-  .then(console.log);
+async function main() {
+  const currencies = await Promise.all([fixer(), coinmarketcap()]);
+  console.log(currencies);
+}
+
+
+main();
