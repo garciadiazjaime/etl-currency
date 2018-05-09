@@ -1,4 +1,5 @@
-import clEtl from './sources/currencyLayer'
+import clEtl from './sources/currencyLayer';
+import fixerEtl from './sources/fixer';
 
-clEtl()
-  .then(console.log)
+Promise.all([fixerEtl(), clEtl()])
+  .then(console.log);
