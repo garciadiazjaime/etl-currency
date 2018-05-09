@@ -21,3 +21,7 @@
 
 ## Fixer documentation
 https://fixer.io/documentation
+
+
+## Coinmarketcap
+https://coinmarketcap.com/api/
