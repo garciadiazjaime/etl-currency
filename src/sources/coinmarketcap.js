@@ -20,4 +20,3 @@ const main = () => extract(props)
 
 
 export default main;
-
