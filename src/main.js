@@ -1,5 +1,10 @@
-import clEtl from './sources/currencyLayer';
-import fixerEtl from './sources/fixer';
+import fixer from './sources/fixer';
+import coinmarketcap from './sources/coinmarketcap';
 
-Promise.all([fixerEtl(), clEtl()])
-  .then(console.log);
+async function main() {
+  const currencies = await Promise.all([fixer(), coinmarketcap()]);
+  console.log(currencies);
+}
+
+
+main();
