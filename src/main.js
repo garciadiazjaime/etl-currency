@@ -1,9 +1,8 @@
-import fixer from './sources/fixer';
-import coinmarketcap from './sources/coinmarketcap';
-import currencyLayer from './sources/currencyLayer';
+import sources from './util/sources';
 
 async function main() {
-  const currencies = await Promise.all([fixer(), coinmarketcap(), currencyLayer()]);
-  console.log(currencies);
+  const currencies = await sources();
+  console.log('currencies', currencies);
 }
+
 main();

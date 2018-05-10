@@ -7,7 +7,7 @@
   "scripts": {
     "build": "./node_modules/.bin/babel ./src -d dist",
     "start": "node dist/main",
-    "lint": "esw .",
+    "lint": "./node_modules/.bin/esw .",
     "docker:build": "yarn build && docker build -t garciadiazjaime/etl-currency .",
     "docker:run": "docker run -d -p 49360:80 -e 'API_URL=http://0.0.0.0:3060/' --name currency garciadiazjaime/etl-currency",
     "docker:push": "docker push garciadiazjaime/etl-currency",

@@ -1,6 +1,6 @@
 import request from 'request-promise-native';
 
-const load = (props, data) => {
+function load(props, data) {
   const options = {
     method: 'POST',
     uri: `${props.apiUrl}`,
@@ -10,6 +10,6 @@ const load = (props, data) => {
     json: true,
   };
   return props.isProduction ? request(options) : data;
-};
+}
 
 export default load;
