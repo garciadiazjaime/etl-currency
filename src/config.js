@@ -22,8 +22,16 @@ const config = convict({
       format: String,
       default: '',
       env: 'FIXER_TOKEN',
-    },
+    }
   },
+  currencyLayer: {
+    token: {
+      doc: 'Access token',
+      format: String,
+      default: '',
+      env: 'CURRENCY_LAYER_TOKEN',
+    }
+  }
 });
 
 export default config;

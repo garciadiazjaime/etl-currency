@@ -9,7 +9,7 @@ const load = (props, data) => {
     },
     json: true,
   };
-  return request(options);
+  return props.isProduction ? request(options) : data;
 };
 
 export default load;

@@ -7,7 +7,7 @@ import load from '../util/load';
 const props = {
   isProduction: config.get('env') === 'production',
   file: './stubs/coinmarketcap.json',
-  fixerUrl: 'https://api.coinmarketcap.com/v2/ticker/',
+  sourceUrl: 'https://api.coinmarketcap.com/v2/ticker/',
   apiUrl: config.get('api.url'),
   currencies: ['BTC', 'LTC', 'ETH', 'ZEC', 'DASH', 'XRP', 'XMR'],
 };
@@ -20,4 +20,3 @@ const main = () => extract(props)
 
 
 export default main;
-
