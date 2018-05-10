@@ -1,44 +1,45 @@
 import transform from '../../src/transformer/fixer';
 
 describe('fixer', () => {
-  describe('when empty response is passed', () => {
-    it('throws an exception', () => {
+  describe('when parameter are missing', () => {
+    it('throws an exception if no paramater is passed', () => {
       expect(() => {
         transform();
-      }).toThrow('Source returned invalid response');
+      }).toThrow('Transformer recevied invalid parameters');
     });
-  });
 
-  describe('when .success is falsy', () => {
-    it('throws an exception', () => {
-      const response = JSON.stringify({});
-
+    it('throws an exception if props are empty', () => {
       expect(() => {
-        transform(null, response);
-      }).toThrow('Source returned invalid response');
+        transform(null, {});
+      }).toThrow('Transformer recevied invalid parameters');
+    });
+
+    it('throws an exception if response is empty', () => {
+      expect(() => {
+        transform({}, null);
+      }).toThrow('Transformer recevied invalid parameters');
     });
   });
 
   describe('when source does not include rates', () => {
-    it('throws an exception', () => {
-      const response = JSON.stringify({
-        success: true,
-      });
+    it('throws an exception if rates is not present', () => {
+      const props = {};
+      const response = JSON.stringify({});
 
       expect(() => {
-        transform(null, response);
-      }).toThrow('Source did not return rates');
+        transform(props, response);
+      }).toThrow('Source returned invalid response');
     });
 
     it('throws an exception if rates is an empty object', () => {
+      const props = {};
       const response = JSON.stringify({
-        success: true,
-        rates: {},
+        quotes: {},
       });
 
       expect(() => {
-        transform(null, response);
-      }).toThrow('Source did not return rates');
+        transform(props, response);
+      }).toThrow('Source returned invalid response');
     });
   });
 
@@ -52,8 +53,10 @@ describe('fixer', () => {
     });
 
     it('throws and exception when props.currencies is falsy', () => {
+      const props = {};
+
       expect(() => {
-        transform(null, response);
+        transform(props, response);
       }).toThrow('Props.currencies were not passed');
     });
 

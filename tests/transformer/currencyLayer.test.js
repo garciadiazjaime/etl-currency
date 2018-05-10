@@ -1,6 +1,6 @@
-import transform from '../../src/transformer/coinmarketcap';
+import transform from '../../src/transformer/currencyLayer';
 
-describe('coinmarketcap', () => {
+describe('currencyLayer', () => {
   describe('when parameter are missing', () => {
     it('throws an exception if no paramater is passed', () => {
       expect(() => {
@@ -21,11 +21,20 @@ describe('coinmarketcap', () => {
     });
   });
 
-  describe('when source does not include rates', () => {
-    it('throws an exception if rates is an empty object', () => {
+  describe('when source does not include quotes', () => {
+    it('throws an exception if quotes is not present', () => {
+      const props = {};
+      const response = JSON.stringify({});
+
+      expect(() => {
+        transform(props, response);
+      }).toThrow('Source returned invalid response');
+    });
+
+    it('throws an exception if quotes is an empty object', () => {
       const props = {};
       const response = JSON.stringify({
-        data: {},
+        quotes: {},
       });
 
       expect(() => {
@@ -34,31 +43,19 @@ describe('coinmarketcap', () => {
     });
   });
 
-  describe('when source includes rates', () => {
+  describe('when source includes quotes', () => {
     const response = JSON.stringify({
-      data: {
-        1: {
-          symbol: 'BTC',
-          quotes: {
-            USD: {
-              price: 9870.68,
-            },
-          },
-        },
-        2: {
-          symbol: 'ETH',
-          quotes: {
-            USD: {
-              price: 9870.68,
-            },
-          },
-        },
+      quotes: {
+        USDUSD: 1,
+        USDAUD: 1.328799,
+        USDCAD: 1.28465,
+        USDPLN: 3.567027,
+        USDMXN: 19.036598,
       },
     });
 
     it('throws and exception when props.currencies is falsy', () => {
       const props = {};
-
       expect(() => {
         transform(props, response);
       }).toThrow('Props.currencies were not passed');
@@ -84,10 +81,24 @@ describe('coinmarketcap', () => {
 
     it('returns array with only valid currencies', () => {
       const props = {
-        currencies: ['BTC', 'ETH', 'rate2', 'invalidRate'],
+        currencies: ['USDUSD', 'USDAUD', 'USDCAD', 'USDPLN', 'USDMXN'],
       };
 
-      expect(transform(props, response)).toEqual([{ BTC: 9870.68 }, { ETH: 9870.68 }]);
+      expect(transform(props, response))
+        .toEqual([{
+          USDUSD: 1,
+        },
+        {
+          USDAUD: 1.328799,
+        },
+        {
+          USDCAD: 1.28465,
+        }, {
+          USDPLN: 3.567027,
+        }, {
+          USDMXN: 19.036598,
+        },
+        ]);
     });
   });
 });

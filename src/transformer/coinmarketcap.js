@@ -1,12 +1,11 @@
-const transform = (props, response) => {
-  const data = response && JSON.parse(response);
-  if (!data) {
-    throw new Error('Source returned invalid response');
+function transform(props, response) {
+  if (!props || !response) {
+    throw (new Error('Transformer recevied invalid parameters'));
   }
 
-  const rates = data.data;
+  const { data: rates } = JSON.parse(response);
   if (!rates || !Object.keys(rates).length) {
-    throw new Error('Source did not return rates');
+    throw (new Error('Source returned invalid response'));
   }
 
   if (!props || !props.currencies || !props.currencies.length) {
@@ -22,6 +21,6 @@ const transform = (props, response) => {
     }
     return accumulator;
   }, []);
-};
+}
 
 export default transform;

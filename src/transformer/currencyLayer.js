@@ -1,15 +1,18 @@
-const transform = (props, response) => {
-  const data = JSON.parse(response);
-  if (!data || !data.success) {
-    throw (new Error('Fixer return invalid response'));
+function transform(props, response) {
+  if (!props || !response) {
+    throw (new Error('Transformer recevied invalid parameters'));
   }
 
-  const { quotes } = data;
-  if (!Object.keys(quotes)) {
-    throw (new Error('Fixer return invalid response'));
+  const { quotes } = JSON.parse(response);
+  if (!quotes || !Object.keys(quotes).length) {
+    throw (new Error('Source returned invalid response'));
   }
 
-  const wantedRates = Object.keys(quotes).reduce((accumulator, currency) => {
+  if (!props.currencies || !props.currencies.length) {
+    throw new Error('Props.currencies were not passed');
+  }
+
+  return Object.keys(quotes).reduce((accumulator, currency) => {
     if (props.currencies.includes(currency)) {
       accumulator.push({
         [currency]: quotes[currency],
@@ -17,8 +20,6 @@ const transform = (props, response) => {
     }
     return accumulator;
   }, []);
-
-  return wantedRates;
-};
+}
 
 export default transform;
