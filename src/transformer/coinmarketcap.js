@@ -1,6 +1,5 @@
 const transform = (props, response) => {
   const data = response && JSON.parse(response);
-
   if (!data) {
     throw new Error('Source returned invalid response');
   }

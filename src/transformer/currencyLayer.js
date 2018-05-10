@@ -1,24 +1,24 @@
 const transform = (props, response) => {
-  const data = JSON.parse(response)
+  const data = JSON.parse(response);
   if (!data || !data.success) {
-    throw('Fixer return invalid response')
+    throw (new Error('Fixer return invalid response'));
   }
 
-  const { quotes } = data
+  const { quotes } = data;
   if (!Object.keys(quotes)) {
-    throw('Fixer return invalid response')
+    throw (new Error('Fixer return invalid response'));
   }
 
   const wantedRates = Object.keys(quotes).reduce((accumulator, currency) => {
     if (props.currencies.includes(currency)) {
       accumulator.push({
-        [currency]: quotes[currency]
-      })
+        [currency]: quotes[currency],
+      });
     }
-    return accumulator
-  }, [])
+    return accumulator;
+  }, []);
 
-  return wantedRates
-}
+  return wantedRates;
+};
 
 export default transform;
