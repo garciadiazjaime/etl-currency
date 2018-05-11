@@ -2,6 +2,7 @@
   "name": "etl-currency",
   "version": "1.0.0",
   "main": "index.js",
+  "description": "ETL for currencies",
   "repository": {},
   "license": "MIT",
   "scripts": {
