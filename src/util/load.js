@@ -1,6 +1,10 @@
 import request from 'request-promise-native';
 
 function load(props, data) {
+  if (!props || !props.apiUrl) {
+    throw (new Error('invalid parameters'));
+  }
+
   const options = {
     method: 'POST',
     uri: `${props.apiUrl}`,
@@ -9,6 +13,7 @@ function load(props, data) {
     },
     json: true,
   };
+
   return props.isProduction ? request(options) : data;
 }
 
