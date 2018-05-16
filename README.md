@@ -38,6 +38,13 @@ This source require registration in order to get a token.
 ### Coinmarketcap
 https://coinmarketcap.com/api/
 
+### eldolarenmexico
+https://eldolarenmexico.com/
+- [Banorte](goo.gl/UaTgzD)
+
+### eldolar
+http://www.eldolar.info/es-MX/mexico/dia/hoy
+
 
 How to add a new source
 ----
