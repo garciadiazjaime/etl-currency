@@ -1,7 +1,7 @@
 import transform from '../../src/transformer/currencyLayer';
 
 describe('currencyLayer', () => {
-  describe('when parameter are missing', () => {
+  describe('when parameters are missing', () => {
     it('throws an exception if no paramater is passed', () => {
       expect(() => {
         transform();
