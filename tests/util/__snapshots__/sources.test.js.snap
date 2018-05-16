@@ -1,0 +1,132 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`sources returns expected values 1`] = `
+Array [
+  Array [
+    Object {
+      "CHF": 1.197226,
+    },
+    Object {
+      "CNY": 7.652477,
+    },
+    Object {
+      "EUR": 1,
+    },
+    Object {
+      "GBP": 0.877709,
+    },
+    Object {
+      "KWD": 0.36339,
+    },
+    Object {
+      "KYD": 0.991168,
+    },
+    Object {
+      "MXN": 22.623886,
+    },
+    Object {
+      "USD": 1.208463,
+    },
+  ],
+  Array [
+    Object {
+      "BTC": 9870.68,
+    },
+    Object {
+      "LTC": 179.561,
+    },
+    Object {
+      "XRP": 0.912325,
+    },
+    Object {
+      "DASH": 505.126,
+    },
+    Object {
+      "XMR": 243.154,
+    },
+    Object {
+      "ETH": 811.324,
+    },
+    Object {
+      "ZEC": 306.783,
+    },
+  ],
+  Array [
+    Object {
+      "USDCAD": 1.28465,
+    },
+    Object {
+      "USDPLN": 3.567027,
+    },
+    Object {
+      "USDMXN": 19.036598,
+    },
+  ],
+  Object {
+    "BAJIO": Object {
+      "buy": "18.40",
+      "sale": "19.60",
+    },
+    "BANAMEX": Object {
+      "buy": "18.2065",
+      "sale": "19.335",
+    },
+    "BANCOAZTECA": Object {
+      "buy": "18.00",
+      "sale": "19.10",
+    },
+    "BANCOBASE": Object {
+      "buy": "18.7229",
+      "sale": "19.1229",
+    },
+    "BANCOMER": Object {
+      "buy": "18.47",
+      "sale": "19.66",
+    },
+    "BANJERCITO": Object {
+      "buy": "18.02",
+      "sale": "18.77",
+    },
+    "BANORTE": Object {
+      "buy": "18.25",
+      "sale": "19.65",
+    },
+    "BANREGIO": Object {
+      "buy": "18.70",
+      "sale": "19.80",
+    },
+    "BANXICO": Object {
+      "buy": "19.3825",
+      "sale": "19.3895",
+    },
+    "BXMAS": Object {
+      "buy": "18.40",
+      "sale": "19.40",
+    },
+    "HSBC": Object {
+      "buy": "19.13",
+      "sale": "19.64",
+    },
+    "INBURSA": Object {
+      "buy": "19.00",
+      "sale": "19.55",
+    },
+    "IXE": Object {
+      "buy": "18.25",
+      "sale": "19.65",
+    },
+    "MONEX": Object {
+      "buy": "18.98",
+      "sale": "19.98",
+    },
+    "SANTANDER": Object {
+      "buy": "19.13",
+      "sale": "19.64",
+    },
+    "SCOTIABANK": Object {
+      "buy": "18.10",
+      "sale": "19.62",
+    },
+  },
+]
+`;

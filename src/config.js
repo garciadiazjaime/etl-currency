@@ -8,12 +8,6 @@ const config = convict({
     default: 'development',
     env: 'NODE_ENV',
   },
-  currencyApiUrl: {
-    doc: 'Mint api url',
-    format: String,
-    default: 'http://127.0.0.1:3030/currency',
-    env: 'CURRENCY_API_URL',
-  },
   sources: {
     fixer: {
       token: {
@@ -27,6 +21,12 @@ const config = convict({
         format: String,
         default: './stubs/fixer.json',
       },
+      apiUrl: {
+        doc: 'Mint Api Url',
+        format: String,
+        default: 'http://127.0.0.1:3030/currency',
+        env: 'CURRENCY_API_URL',
+      },
       sourceUrl: {
         doc: 'Source Api Url',
         format: String,
@@ -39,16 +39,16 @@ const config = convict({
       },
     },
     coinmarketcap: {
-      token: {
-        doc: 'Access token',
-        format: String,
-        default: '',
-        env: 'FIXER_TOKEN',
-      },
       stubFile: {
         doc: 'Mock Response',
         format: String,
         default: './stubs/coinmarketcap.json',
+      },
+      apiUrl: {
+        doc: 'Mint Api Url',
+        format: String,
+        default: 'http://127.0.0.1:3030/currency',
+        env: 'CURRENCY_API_URL',
       },
       sourceUrl: {
         doc: 'Source Api Url',
@@ -73,6 +73,12 @@ const config = convict({
         format: String,
         default: './stubs/currencyLayer.json',
       },
+      apiUrl: {
+        doc: 'Mint Api Url',
+        format: String,
+        default: 'http://127.0.0.1:3030/currency',
+        env: 'CURRENCY_API_URL',
+      },
       sourceUrl: {
         doc: 'Source Api Url',
         format: String,
@@ -82,6 +88,24 @@ const config = convict({
         doc: 'Active currencies',
         format: Array,
         default: ['USDPLN', 'USDCAD', 'USDMXN'],
+      },
+    },
+    eldolarenmexico: {
+      stubFile: {
+        doc: 'Mock Response',
+        format: String,
+        default: './stubs/eldolarenmexico.html',
+      },
+      apiUrl: {
+        doc: 'Mint Api Url',
+        format: String,
+        default: 'http://127.0.0.1:3030/currency/usdmxn',
+        env: 'CURRENCY_API_URL',
+      },
+      sourceUrl: {
+        doc: 'Source Api Url',
+        format: String,
+        default: 'https://eldolarenmexico.com/',
       },
     },
   },

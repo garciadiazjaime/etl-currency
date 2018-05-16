@@ -20,7 +20,7 @@ async function main() {
       isProduction: config.get('env') === 'production',
       file: source.stubFile,
       sourceUrl: source.sourceUrl.replace('[token]', source.token),
-      apiUrl: config.get('currencyApiUrl'),
+      apiUrl: source.apiUrl,
       currencies: source.currencies,
     };
     return run(props);
