@@ -130,7 +130,7 @@ const config = convict({
       currencies: {
         doc: 'Active currencies',
         format: Array,
-        default: ['BTC', 'LTC', 'ETH', 'ZEC', 'DASH', 'XRP', 'XMR'],
+        default: ['BTC', 'LTC', 'ETH', 'DASH', 'XMR'],
       },
     },
     eldolarenmexico: {

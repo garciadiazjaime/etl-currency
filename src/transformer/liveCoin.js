@@ -15,10 +15,19 @@ function transform(props, response) {
   const currencies = quotes.filter(currency => props.currencies.includes(currency.cur) && currency.symbol.includes('/USD'));
   // const currencies = currencyList.map(x => x.cur + ': ' + x.last);
   const currencyList = currencies.map(function(item) { 
-    item = {
-      item.currency = item.cur;
-      item.value = item.last;
-    }
+    item.currency = item.cur;
+    item.value = item.last;
+    delete item.cur,
+    delete item.symbol,
+    delete item.last,
+    delete item.high,
+    delete item.low,
+    delete item.volume,
+    delete item.vwap,
+    delete item.max_bid,
+    delete item.min_ask,
+    delete item.best_bid,
+    delete item.best_ask
     return item; 
   });
     

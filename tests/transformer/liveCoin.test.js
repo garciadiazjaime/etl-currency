@@ -1,6 +1,6 @@
-import transform from '../../src/transformer/currencyLayer';
+import transform from '../../src/transformer/LiveCoin';
 
-describe('currencyLayer', () => {
+describe('liveCoin', () => {
   describe('when parameters are missing', () => {
     it('throws an exception if no paramater is passed', () => {
       expect(() => {
@@ -30,27 +30,16 @@ describe('currencyLayer', () => {
         transform(props, response);
       }).toThrow('Source returned invalid response');
     });
-
-    it('throws an exception if quotes is an empty object', () => {
-      const props = {};
-      const response = JSON.stringify({
-        quotes: {},
-      });
-
-      expect(() => {
-        transform(props, response);
-      }).toThrow('Source returned invalid response');
-    });
   });
 
   describe('when source includes quotes', () => {
     const response = JSON.stringify({
       quotes: {
-        USDUSD: 1,
-        USDAUD: 1.328799,
-        USDCAD: 1.28465,
-        USDPLN: 3.567027,
-        USDMXN: 19.036598,
+        LTC: 1,
+        DASH: 1.328799,
+        ETH: 1.28465,
+        BTC: 3.567027,
+        XMR: 19.036598,
       },
     });
 
@@ -81,25 +70,25 @@ describe('currencyLayer', () => {
 
     it('returns array with only valid currencies', () => {
       const props = {
-        currencies: ['USDUSD', 'USDAUD', 'USDCAD', 'USDPLN', 'USDMXN'],
+        currencies: ['BTC', 'LTC', 'ETH', 'DASH', 'XMR'],
       };
 
       expect(transform(props, response))
         .toEqual([{
-          currency: 'USD',
-          rate: 1,
+          currency: 'LTC',
+          rate: 136.81697,
         }, {
-          currency: 'AUD',
+          currency: 'DASH',
           rate: 1.328799,
         }, {
-          currency: 'CAD',
-          rate: 1.28465,
+          currency: 'ETH',
+          rate: 698.10657,
         }, {
-          currency: 'PLN',
-          rate: 3.567027,
+          currency: 'BTC',
+          rate: 8324.21,
         }, {
-          currency: 'MXN',
-          rate: 19.036598,
+          currency: 'XMR',
+          rate: 194.92005,
         }]);
     });
   });
