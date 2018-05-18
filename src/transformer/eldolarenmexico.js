@@ -5,7 +5,7 @@ function transform(props, response) {
     throw (new Error('Transformer recevied invalid parameters'));
   }
 
-  const rates = {};
+  const rates = [];
   const jQuery = cheerio.load(response);
   jQuery('table tr').each((i, row) => {
     const entity = jQuery(row).find('img').attr('alt');
@@ -14,10 +14,11 @@ function transform(props, response) {
         .replace('$', '');
       const sale = jQuery(row).find('.tdventa').text().trim()
         .replace('$', '');
-      rates[entity] = {
+      rates.push({
+        entity,
         buy,
         sale,
-      };
+      });
     }
   });
 

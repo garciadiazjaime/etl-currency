@@ -87,7 +87,13 @@ describe('coinmarketcap', () => {
         currencies: ['BTC', 'ETH', 'rate2', 'invalidRate'],
       };
 
-      expect(transform(props, response)).toEqual([{ BTC: 9870.68 }, { ETH: 9870.68 }]);
+      expect(transform(props, response)).toEqual([{
+        currency: 'BTC',
+        rate: 9870.68,
+      }, {
+        currency: 'ETH',
+        rate: 9870.68,
+      }]);
     });
   });
 });

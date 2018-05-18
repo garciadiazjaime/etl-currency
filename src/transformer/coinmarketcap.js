@@ -16,7 +16,8 @@ function transform(props, response) {
     const currency = rates[index];
     if (props.currencies.includes(currency.symbol)) {
       accumulator.push({
-        [currency.symbol]: currency.quotes.USD.price,
+        currency: currency.symbol,
+        rate: currency.quotes.USD.price,
       });
     }
     return accumulator;

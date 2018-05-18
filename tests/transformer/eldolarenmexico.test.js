@@ -28,7 +28,7 @@ describe('fixer', () => {
 
       const rates = transform(props, stubHtml);
 
-      expect(rates).toEqual({});
+      expect(rates).toEqual([]);
     });
   });
 
@@ -60,20 +60,19 @@ describe('fixer', () => {
 
       const rates = transform(props, stubHtml);
 
-      expect(rates).toEqual({
-        BAJIO: {
-          buy: '18.40',
-          sale: '19.60',
-        },
-        BANAMEX: {
-          buy: '18.2065',
-          sale: '19.335',
-        },
-        BANCOAZTECA: {
-          buy: '18.00',
-          sale: '19.10',
-        },
-      });
+      expect(rates).toEqual([{
+        buy: '18.40',
+        entity: 'BAJIO',
+        sale: '19.60',
+      }, {
+        buy: '18.2065',
+        entity: 'BANAMEX',
+        sale: '19.335',
+      }, {
+        buy: '18.00',
+        entity: 'BANCOAZTECA',
+        sale: '19.10',
+      }]);
     });
   });
 });

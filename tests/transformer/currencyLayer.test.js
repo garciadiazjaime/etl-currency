@@ -86,19 +86,21 @@ describe('currencyLayer', () => {
 
       expect(transform(props, response))
         .toEqual([{
-          USDUSD: 1,
-        },
-        {
-          USDAUD: 1.328799,
-        },
-        {
-          USDCAD: 1.28465,
+          currency: 'USDUSD',
+          rate: 1,
         }, {
-          USDPLN: 3.567027,
+          currency: 'USDAUD',
+          rate: 1.328799,
         }, {
-          USDMXN: 19.036598,
-        },
-        ]);
+          currency: 'USDCAD',
+          rate: 1.28465,
+        }, {
+          currency: 'USDPLN',
+          rate: 3.567027,
+        }, {
+          currency: 'USDMXN',
+          rate: 19.036598,
+        }]);
     });
   });
 });

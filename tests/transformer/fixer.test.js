@@ -83,7 +83,13 @@ describe('fixer', () => {
         currencies: ['rate0', 'rate1', 'rate2', 'invalidRate'],
       };
 
-      expect(transform(props, response)).toEqual([{ rate1: 'rate1' }, { rate2: 'rate2' }]);
+      expect(transform(props, response)).toEqual([{
+        currency: 'rate1',
+        rate: 'rate1',
+      }, {
+        currency: 'rate2',
+        rate: 'rate2',
+      }]);
     });
   });
 });

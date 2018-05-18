@@ -10,6 +10,11 @@ const config = convict({
   },
   sources: {
     fixer: {
+      enable: {
+        doc: 'Feature Flag to enable source',
+        format: Boolean,
+        default: false,
+      },
       token: {
         doc: 'Access token',
         format: String,
@@ -24,7 +29,7 @@ const config = convict({
       apiUrl: {
         doc: 'Mint Api Url',
         format: String,
-        default: 'http://127.0.0.1:3030/currency',
+        default: 'http://127.0.0.1:3000/rates',
         env: 'CURRENCY_API_URL',
       },
       sourceUrl: {
@@ -39,6 +44,11 @@ const config = convict({
       },
     },
     coinmarketcap: {
+      enable: {
+        doc: 'Feature Flag to enable source',
+        format: Boolean,
+        default: false,
+      },
       stubFile: {
         doc: 'Mock Response',
         format: String,
@@ -47,7 +57,7 @@ const config = convict({
       apiUrl: {
         doc: 'Mint Api Url',
         format: String,
-        default: 'http://127.0.0.1:3030/currency',
+        default: 'http://127.0.0.1:3000/rates',
         env: 'CURRENCY_API_URL',
       },
       sourceUrl: {
@@ -62,6 +72,11 @@ const config = convict({
       },
     },
     currencyLayer: {
+      enable: {
+        doc: 'Feature Flag to enable source',
+        format: Boolean,
+        default: true,
+      },
       token: {
         doc: 'Access token',
         format: String,
@@ -76,7 +91,7 @@ const config = convict({
       apiUrl: {
         doc: 'Mint Api Url',
         format: String,
-        default: 'http://127.0.0.1:3030/currency',
+        default: 'http://127.0.0.1:3000/rates',
         env: 'CURRENCY_API_URL',
       },
       sourceUrl: {
@@ -91,6 +106,11 @@ const config = convict({
       },
     },
     eldolarenmexico: {
+      enable: {
+        doc: 'Feature Flag to enable source',
+        format: Boolean,
+        default: false,
+      },
       stubFile: {
         doc: 'Mock Response',
         format: String,
@@ -99,7 +119,7 @@ const config = convict({
       apiUrl: {
         doc: 'Mint Api Url',
         format: String,
-        default: 'http://127.0.0.1:3030/currency/usdmxn',
+        default: 'http://127.0.0.1:3000/rates/usdmxn',
         env: 'CURRENCY_API_URL',
       },
       sourceUrl: {
