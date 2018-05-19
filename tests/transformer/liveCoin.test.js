@@ -1,4 +1,4 @@
-import transform from '../../src/transformer/LiveCoin';
+import transform from '../../src/transformer/liveCoin';
 
 describe('liveCoin', () => {
   describe('when parameters are missing', () => {
@@ -35,69 +35,69 @@ describe('liveCoin', () => {
   describe('when source includes symbol, cur and last', () => {
     const response = JSON.stringify([
       {
-        "symbol": "BTC/USD",
-        "last": 136.81697,
-        "cur": "BTC",
-        "high": 0.00057953,
-        "low": 0.00056985,
-        "volume": 10.2179534,
-        "vwap": 0.0005772,
-        "max_bid": 0.00058,
-        "min_ask": 0.00056985,
-        "best_bid": 0.0004945,
-        "best_ask": 0.00057946
+        symbol: 'BTC/USD',
+        last: 136.81697,
+        cur: 'BTC',
+        high: 0.00057953,
+        low: 0.00056985,
+        volume: 10.2179534,
+        vwap: 0.0005772,
+        max_bid: 0.00058,
+        min_ask: 0.00056985,
+        best_bid: 0.0004945,
+        best_ask: 0.00057946,
       },
       {
-        "symbol": "LTC/USD",
-        "last": 1.328799,
-        "cur": "LTC",
-        "high": 0.00057953,
-        "low": 0.00056985,
-        "volume": 10.2179534,
-        "vwap": 0.0005772,
-        "max_bid": 0.00058,
-        "min_ask": 0.00056985,
-        "best_bid": 0.0004945,
-        "best_ask": 0.00057946
+        symbol: 'LTC/USD',
+        last: 1.328799,
+        cur: 'LTC',
+        high: 0.00057953,
+        low: 0.00056985,
+        volume: 10.2179534,
+        vwap: 0.0005772,
+        max_bid: 0.00058,
+        min_ask: 0.00056985,
+        best_bid: 0.0004945,
+        best_ask: 0.00057946,
       },
       {
-        "symbol": "ETH/USD",
-        "last": 698.10657,
-        "cur": "ETH",
-        "high": 0.00057953,
-        "low": 0.00056985,
-        "volume": 10.2179534,
-        "vwap": 0.0005772,
-        "max_bid": 0.00058,
-        "min_ask": 0.00056985,
-        "best_bid": 0.0004945,
-        "best_ask": 0.00057946
+        symbol: 'ETH/USD',
+        last: 698.10657,
+        cur: 'ETH',
+        high: 0.00057953,
+        low: 0.00056985,
+        volume: 10.2179534,
+        vwap: 0.0005772,
+        max_bid: 0.00058,
+        min_ask: 0.00056985,
+        best_bid: 0.0004945,
+        best_ask: 0.00057946,
       },
       {
-        "symbol": "DASH/USD",
-        "last": 8324.21,
-        "cur": "DASH",
-        "high": 0.00057953,
-        "low": 0.00056985,
-        "volume": 10.2179534,
-        "vwap": 0.0005772,
-        "max_bid": 0.00058,
-        "min_ask": 0.00056985,
-        "best_bid": 0.0004945,
-        "best_ask": 0.00057946
+        symbol: 'DASH/USD',
+        last: 8324.21,
+        cur: 'DASH',
+        high: 0.00057953,
+        low: 0.00056985,
+        volume: 10.2179534,
+        vwap: 0.0005772,
+        max_bid: 0.00058,
+        min_ask: 0.00056985,
+        best_bid: 0.0004945,
+        best_ask: 0.00057946,
       },
       {
-        "symbol": "XMR/USD",
-        "last": 194.92005,
-        "cur": "XMR",
-        "high": 0.00057953,
-        "low": 0.00056985,
-        "volume": 10.2179534,
-        "vwap": 0.0005772,
-        "max_bid": 0.00058,
-        "min_ask": 0.00056985,
-        "best_bid": 0.0004945,
-        "best_ask": 0.00057946
+        symbol: 'XMR/USD',
+        last: 194.92005,
+        cur: 'XMR',
+        high: 0.00057953,
+        low: 0.00056985,
+        volume: 10.2179534,
+        vwap: 0.0005772,
+        max_bid: 0.00058,
+        min_ask: 0.00056985,
+        best_bid: 0.0004945,
+        best_ask: 0.00057946,
       },
     ]);
 
@@ -126,9 +126,9 @@ describe('liveCoin', () => {
       expect(transform(props, response)).toEqual([]);
     });
 
-    it.only('returns array with only valid currencies', () => {
+    it('returns array with only valid currencies', () => {
       const props = {
-        currencies: ['BTC', 'LTC', 'ETH', 'DASH', 'XMR']
+        currencies: ['BTC', 'LTC', 'ETH', 'DASH', 'XMR'],
       };
 
       expect(transform(props, response))
