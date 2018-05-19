@@ -1,10 +1,12 @@
 function transform(props, response) {
+  
   if (!props || !response) {
     throw (new Error('Transformer recevied invalid parameters'));
   }
 
   const quotes = JSON.parse(response);
-  if (!quotes || !Object.keys(quotes).length) {
+  console.log(quotes);
+  if (!quotes.find(function (obj) { return obj.symbol; }) || !quotes.find(function (obj) { return obj.last; }) || !quotes.find(function (obj) { return obj.cur; })) {
     throw (new Error('Source returned invalid response'));
   }
 
@@ -13,10 +15,10 @@ function transform(props, response) {
   }
   
   const currencies = quotes.filter(currency => props.currencies.includes(currency.cur) && currency.symbol.includes('/USD'));
-  // const currencies = currencyList.map(x => x.cur + ': ' + x.last);
+  
   const currencyList = currencies.map(function(item) { 
     item.currency = item.cur;
-    item.value = item.last;
+    item.rate = item.last;
     delete item.cur,
     delete item.symbol,
     delete item.last,

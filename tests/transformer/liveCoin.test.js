@@ -21,10 +21,10 @@ describe('liveCoin', () => {
     });
   });
 
-  describe('when source does not include quotes', () => {
-    it('throws an exception if quotes is not present', () => {
+  describe('when source does not include symbol, cur or last', () => {
+    it('throws an exception if symbol or last are not present', () => {
       const props = {};
-      const response = JSON.stringify({});
+      const response = JSON.stringify([{}]);
 
       expect(() => {
         transform(props, response);
@@ -32,16 +32,74 @@ describe('liveCoin', () => {
     });
   });
 
-  describe('when source includes quotes', () => {
-    const response = JSON.stringify({
-      quotes: {
-        LTC: 1,
-        DASH: 1.328799,
-        ETH: 1.28465,
-        BTC: 3.567027,
-        XMR: 19.036598,
+  describe('when source includes symbol, cur and last', () => {
+    const response = JSON.stringify([
+      {
+        "symbol": "BTC/USD",
+        "last": 136.81697,
+        "cur": "BTC",
+        "high": 0.00057953,
+        "low": 0.00056985,
+        "volume": 10.2179534,
+        "vwap": 0.0005772,
+        "max_bid": 0.00058,
+        "min_ask": 0.00056985,
+        "best_bid": 0.0004945,
+        "best_ask": 0.00057946
       },
-    });
+      {
+        "symbol": "LTC/USD",
+        "last": 1.328799,
+        "cur": "LTC",
+        "high": 0.00057953,
+        "low": 0.00056985,
+        "volume": 10.2179534,
+        "vwap": 0.0005772,
+        "max_bid": 0.00058,
+        "min_ask": 0.00056985,
+        "best_bid": 0.0004945,
+        "best_ask": 0.00057946
+      },
+      {
+        "symbol": "ETH/USD",
+        "last": 698.10657,
+        "cur": "ETH",
+        "high": 0.00057953,
+        "low": 0.00056985,
+        "volume": 10.2179534,
+        "vwap": 0.0005772,
+        "max_bid": 0.00058,
+        "min_ask": 0.00056985,
+        "best_bid": 0.0004945,
+        "best_ask": 0.00057946
+      },
+      {
+        "symbol": "DASH/USD",
+        "last": 8324.21,
+        "cur": "DASH",
+        "high": 0.00057953,
+        "low": 0.00056985,
+        "volume": 10.2179534,
+        "vwap": 0.0005772,
+        "max_bid": 0.00058,
+        "min_ask": 0.00056985,
+        "best_bid": 0.0004945,
+        "best_ask": 0.00057946
+      },
+      {
+        "symbol": "XMR/USD",
+        "last": 194.92005,
+        "cur": "XMR",
+        "high": 0.00057953,
+        "low": 0.00056985,
+        "volume": 10.2179534,
+        "vwap": 0.0005772,
+        "max_bid": 0.00058,
+        "min_ask": 0.00056985,
+        "best_bid": 0.0004945,
+        "best_ask": 0.00057946
+      },
+    ]);
 
     it('throws and exception when props.currencies is falsy', () => {
       const props = {};
@@ -68,23 +126,23 @@ describe('liveCoin', () => {
       expect(transform(props, response)).toEqual([]);
     });
 
-    it('returns array with only valid currencies', () => {
+    it.only('returns array with only valid currencies', () => {
       const props = {
-        currencies: ['BTC', 'LTC', 'ETH', 'DASH', 'XMR'],
+        currencies: ['BTC', 'LTC', 'ETH', 'DASH', 'XMR']
       };
 
       expect(transform(props, response))
         .toEqual([{
-          currency: 'LTC',
+          currency: 'BTC',
           rate: 136.81697,
         }, {
-          currency: 'DASH',
+          currency: 'LTC',
           rate: 1.328799,
         }, {
           currency: 'ETH',
           rate: 698.10657,
         }, {
-          currency: 'BTC',
+          currency: 'DASH',
           rate: 8324.21,
         }, {
           currency: 'XMR',
