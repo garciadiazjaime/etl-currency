@@ -15,7 +15,7 @@ function transform(props, response) {
   return Object.keys(quotes).reduce((accumulator, currency) => {
     if (props.currencies.includes(currency)) {
       accumulator.push({
-        currency,
+        currency: currency.substr(3),
         rate: quotes[currency],
       });
     }

@@ -86,19 +86,19 @@ describe('currencyLayer', () => {
 
       expect(transform(props, response))
         .toEqual([{
-          currency: 'USDUSD',
+          currency: 'USD',
           rate: 1,
         }, {
-          currency: 'USDAUD',
+          currency: 'AUD',
           rate: 1.328799,
         }, {
-          currency: 'USDCAD',
+          currency: 'CAD',
           rate: 1.28465,
         }, {
-          currency: 'USDPLN',
+          currency: 'PLN',
           rate: 3.567027,
         }, {
-          currency: 'USDMXN',
+          currency: 'MXN',
           rate: 19.036598,
         }]);
     });

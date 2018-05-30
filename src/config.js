@@ -13,7 +13,7 @@ const config = convict({
       enable: {
         doc: 'Feature Flag to enable source',
         format: Boolean,
-        default: false,
+        default: true,
       },
       token: {
         doc: 'Access token',
@@ -47,7 +47,7 @@ const config = convict({
       enable: {
         doc: 'Feature Flag to enable source',
         format: Boolean,
-        default: false,
+        default: true,
       },
       stubFile: {
         doc: 'Mock Response',
@@ -105,11 +105,39 @@ const config = convict({
         default: ['USDPLN', 'USDCAD', 'USDMXN'],
       },
     },
+    liveCoin: {
+      enable: {
+        doc: 'Feature Flag to enable source',
+        format: Boolean,
+        default: true,
+      },
+      stubFile: {
+        doc: 'Mock Response',
+        format: String,
+        default: './stubs/liveCoin.json',
+      },
+      apiUrl: {
+        doc: 'Mint Api Url',
+        format: String,
+        default: 'http://127.0.0.1:3000/rates',
+        env: 'CURRENCY_API_URL',
+      },
+      sourceUrl: {
+        doc: 'Source Api Url',
+        format: String,
+        default: 'https://api.livecoin.net/exchange/ticker',
+      },
+      currencies: {
+        doc: 'Active currencies',
+        format: Array,
+        default: ['BTC', 'LTC', 'ETH', 'ZEC', 'DASH', 'XRP', 'XMR'],
+      },
+    },
     eldolarenmexico: {
       enable: {
         doc: 'Feature Flag to enable source',
         format: Boolean,
-        default: false,
+        default: true,
       },
       stubFile: {
         doc: 'Mock Response',
