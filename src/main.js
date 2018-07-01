@@ -1,8 +1,12 @@
 import sources from './util/sources';
 
 async function main() {
-  const currencies = await sources();
-  console.log('currencies', currencies);
+  try {
+    const currencies = await sources();
+    console.log('currencies', currencies);
+  } catch (exception) {
+    console.log({ exception });
+  }
 }
 
 main();

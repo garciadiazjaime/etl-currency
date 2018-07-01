@@ -22,6 +22,7 @@ async function main() {
         sourceUrl: source.sourceUrl.replace('[token]', source.token),
         apiUrl: source.apiUrl,
         currencies: source.currencies,
+        type: source.type,
       };
       accumulator.push(run(props));
     }

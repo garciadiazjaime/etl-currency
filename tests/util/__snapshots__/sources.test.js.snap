@@ -5,183 +5,43 @@ Array [
   Array [
     Object {
       "currency": "CHF",
-      "rate": 1.197226,
+      "rate": 0.9907,
+      "type": false,
     },
     Object {
       "currency": "CNY",
-      "rate": 7.652477,
+      "rate": 6.3324,
+      "type": false,
     },
     Object {
       "currency": "EUR",
-      "rate": 1,
+      "rate": 0.8274,
+      "type": false,
     },
     Object {
       "currency": "GBP",
-      "rate": 0.877709,
+      "rate": 0.7263,
+      "type": false,
     },
     Object {
       "currency": "KWD",
-      "rate": 0.36339,
+      "rate": 0.3007,
+      "type": false,
     },
     Object {
       "currency": "KYD",
-      "rate": 0.991168,
+      "rate": 0.8201,
+      "type": false,
     },
     Object {
       "currency": "MXN",
-      "rate": 22.623886,
+      "rate": 18.7212,
+      "type": false,
     },
     Object {
       "currency": "USD",
-      "rate": 1.208463,
-    },
-  ],
-  Array [
-    Object {
-      "currency": "BTC",
-      "rate": 9870.68,
-    },
-    Object {
-      "currency": "LTC",
-      "rate": 179.561,
-    },
-    Object {
-      "currency": "XRP",
-      "rate": 0.912325,
-    },
-    Object {
-      "currency": "DASH",
-      "rate": 505.126,
-    },
-    Object {
-      "currency": "XMR",
-      "rate": 243.154,
-    },
-    Object {
-      "currency": "ETH",
-      "rate": 811.324,
-    },
-    Object {
-      "currency": "ZEC",
-      "rate": 306.783,
-    },
-  ],
-  Array [
-    Object {
-      "currency": "CAD",
-      "rate": 1.28465,
-    },
-    Object {
-      "currency": "PLN",
-      "rate": 3.567027,
-    },
-    Object {
-      "currency": "MXN",
-      "rate": 19.036598,
-    },
-  ],
-  Array [
-    Object {
-      "currency": "LTC",
-      "rate": 136.81697,
-    },
-    Object {
-      "currency": "DASH",
-      "rate": 402.01688,
-    },
-    Object {
-      "currency": "ETH",
-      "rate": 698.10657,
-    },
-    Object {
-      "currency": "BTC",
-      "rate": 8324.21,
-    },
-    Object {
-      "currency": "XMR",
-      "rate": 194.92005,
-    },
-  ],
-  Array [
-    Object {
-      "buy": "18.02",
-      "entity": "BANJERCITO",
-      "sale": "18.77",
-    },
-    Object {
-      "buy": "18.00",
-      "entity": "BANCOAZTECA",
-      "sale": "19.10",
-    },
-    Object {
-      "buy": "18.7229",
-      "entity": "BANCOBASE",
-      "sale": "19.1229",
-    },
-    Object {
-      "buy": "18.2065",
-      "entity": "BANAMEX",
-      "sale": "19.335",
-    },
-    Object {
-      "buy": "19.3825",
-      "entity": "BANXICO",
-      "sale": "19.3895",
-    },
-    Object {
-      "buy": "18.40",
-      "entity": "BXMAS",
-      "sale": "19.40",
-    },
-    Object {
-      "buy": "19.00",
-      "entity": "INBURSA",
-      "sale": "19.55",
-    },
-    Object {
-      "buy": "18.40",
-      "entity": "BAJIO",
-      "sale": "19.60",
-    },
-    Object {
-      "buy": "18.10",
-      "entity": "SCOTIABANK",
-      "sale": "19.62",
-    },
-    Object {
-      "buy": "19.13",
-      "entity": "HSBC",
-      "sale": "19.64",
-    },
-    Object {
-      "buy": "19.13",
-      "entity": "SANTANDER",
-      "sale": "19.64",
-    },
-    Object {
-      "buy": "18.25",
-      "entity": "BANORTE",
-      "sale": "19.65",
-    },
-    Object {
-      "buy": "18.25",
-      "entity": "IXE",
-      "sale": "19.65",
-    },
-    Object {
-      "buy": "18.47",
-      "entity": "BANCOMER",
-      "sale": "19.66",
-    },
-    Object {
-      "buy": "18.70",
-      "entity": "BANREGIO",
-      "sale": "19.80",
-    },
-    Object {
-      "buy": "18.98",
-      "entity": "MONEX",
-      "sale": "19.98",
+      "rate": 1,
+      "type": false,
     },
   ],
 ]

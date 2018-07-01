@@ -44,52 +44,70 @@ describe('fixer', () => {
   });
 
   describe('when source includes rates', () => {
-    const response = JSON.stringify({
-      success: true,
-      rates: {
-        rate1: 'rate1',
-        rate2: 'rate2',
-      },
+    describe('main', () => {
+      const response = JSON.stringify({
+        success: true,
+        rates: {
+          EUR: 1,
+          USD: 1.28,
+        },
+      });
+
+      it('throws and exception when props.currencies is falsy', () => {
+        const props = {};
+
+        expect(() => {
+          transform(props, response);
+        }).toThrow('Props.currencies were not passed');
+      });
+
+      it('throws and exception when props.currencies is empty array', () => {
+        const props = {
+          currencies: [],
+        };
+
+        expect(() => {
+          transform(props, response);
+        }).toThrow('Props.currencies were not passed');
+      });
     });
 
-    it('throws and exception when props.currencies is falsy', () => {
-      const props = {};
+    describe('when USD is present', () => {
+      const response = JSON.stringify({
+        success: true,
+        rates: {
+          EUR: 1,
+          USD: 1.28,
+        },
+      });
 
-      expect(() => {
-        transform(props, response);
-      }).toThrow('Props.currencies were not passed');
+      it('returns array with expected values', () => {
+        const props = {
+          currencies: ['USD', 'EUR', 'rate2', 'invalidRate'],
+          type: false,
+        };
+
+        expect(transform(props, response)).toEqual([{ currency: 'EUR', rate: 0.7812, type: false }, { currency: 'USD', rate: 1, type: false }]);
+      });
     });
 
-    it('throws and exception when props.currencies is empty array', () => {
-      const props = {
-        currencies: [],
-      };
+    describe('when USD is not present', () => {
+      const response = JSON.stringify({
+        success: true,
+        rates: {
+          EUR: 1,
+          MXN: 1.28,
+        },
+      });
 
-      expect(() => {
-        transform(props, response);
-      }).toThrow('Props.currencies were not passed');
-    });
+      it('throws an exception when USD is not present', () => {
+        const props = {
+          currencies: ['MXN', 'EUR', 'rate2', 'invalidRate'],
+          type: false,
+        };
 
-    it('returns empty array when source does not include valid currencies', () => {
-      const props = {
-        currencies: ['rate0'],
-      };
-
-      expect(transform(props, response)).toEqual([]);
-    });
-
-    it('returns array with only valid currencies', () => {
-      const props = {
-        currencies: ['rate0', 'rate1', 'rate2', 'invalidRate'],
-      };
-
-      expect(transform(props, response)).toEqual([{
-        currency: 'rate1',
-        rate: 'rate1',
-      }, {
-        currency: 'rate2',
-        rate: 'rate2',
-      }]);
+        expect(() => { transform(props, response); }).toThrow('USD not present');
+      });
     });
   });
 });

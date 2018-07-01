@@ -42,12 +42,17 @@ const config = convict({
         format: Array,
         default: ['EUR', 'USD', 'MXN', 'CHF', 'KYD', 'GBP', 'KWD', 'CNY'],
       },
+      type: {
+        doc: 'Currency Type',
+        format: Boolean,
+        default: false,
+      },
     },
     coinmarketcap: {
       enable: {
         doc: 'Feature Flag to enable source',
         format: Boolean,
-        default: true,
+        default: false,
       },
       stubFile: {
         doc: 'Mock Response',
@@ -75,7 +80,7 @@ const config = convict({
       enable: {
         doc: 'Feature Flag to enable source',
         format: Boolean,
-        default: true,
+        default: false,
       },
       token: {
         doc: 'Access token',
@@ -109,7 +114,7 @@ const config = convict({
       enable: {
         doc: 'Feature Flag to enable source',
         format: Boolean,
-        default: true,
+        default: false,
       },
       stubFile: {
         doc: 'Mock Response',
@@ -137,7 +142,7 @@ const config = convict({
       enable: {
         doc: 'Feature Flag to enable source',
         format: Boolean,
-        default: true,
+        default: false,
       },
       stubFile: {
         doc: 'Mock Response',

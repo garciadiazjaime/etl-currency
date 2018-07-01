@@ -12,15 +12,28 @@ function transform(props, response) {
     throw new Error('Props.currencies were not passed');
   }
 
-  return Object.keys(rates).reduce((accumulator, currency) => {
+  let USD = null;
+  const currencies = Object.keys(rates).reduce((accumulator, currency) => {
     if (props.currencies.includes(currency)) {
       accumulator.push({
         currency,
         rate: rates[currency],
+        type: props.type,
       });
+      if (currency === 'USD') {
+        USD = rates[currency];
+      }
     }
     return accumulator;
   }, []);
+
+  if (!USD) {
+    throw (new Error('USD not present'));
+  }
+
+  return currencies.map(item => (Object.assign({}, item, {
+    rate: Math.floor((item.rate / USD) * 10000) / 10000,
+  })));
 }
 
 export default transform;
