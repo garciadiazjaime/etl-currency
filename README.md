@@ -63,3 +63,12 @@ How to contribute
 Contact
 ----
 For any question send us a line to: `info@mintitmedia.com`
+
+### Docker commands
+
+```
+docker build -t garciadiazjaime/etl-currency .
+docker run -d -p 49192:3030 garciadiazjaime/etl-currency
+docker push garciadiazjaime/etl-currency
+docker pull garciadiazjaime/etl-currency
+```

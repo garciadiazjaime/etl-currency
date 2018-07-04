@@ -10,6 +10,8 @@ WORKDIR /usr/src/app
 
 ADD . /usr/src/app
 
+RUN cd /usr/src/app && npm run build
+
 EXPOSE 3060
 
-CMD [ "node", "./build/cecut.js" ]
+CMD [ "node", "./dist/main.js" ]
